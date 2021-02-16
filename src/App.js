@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState , useEffect} from "react";
+import useCustomCounter from "./Custom";
+
+// function App() {
+//   const [count, setCount] = useState(101);
+//   const [count1, setCount1] = useState(500);
+
+// const handleIncreament = ()=>{
+//   setCount(count + 1);
+// }
+// const handleDecreament = ()=>{
+//   setCount1(count1 - 1);
+// }
+// useEffect(() => {
+//  console.log("useEffect Called");
+// },[count,count1]);
+//   return (
+//     <React.Fragment>
+//   <h1> Count Up:{count} </h1>
+//   <button type="button" onClick={handleIncreament}>Increament</button>
+//   <h1> Count Down:{count1} </h1>
+//   <button type="button" onClick={handleDecreament}>Decreament</button>
+//   </React.Fragment>
+//   );
+// }
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ const data = useCustomCounter();
+ return (
+   <React.Fragment>
+     <h1>Counter Up: {data.counter}</h1>
+     <button type="button" onClick={data.handleCounter}>Increament</button>
+   </React.Fragment>
+ ) 
 }
 
 export default App;
